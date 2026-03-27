@@ -1,0 +1,50 @@
+# ===== ウォッチリスト =====
+watchlist:
+  # 日本株（東証）
+  - ticker: "7203.T"
+    market: JP
+    display_name: "トヨタ自動車"
+  - ticker: "6758.T"
+    market: JP
+    display_name: "ソニーグループ"
+  - ticker: "9984.T"
+    market: JP
+    display_name: "ソフトバンクG"
+  # 米国株
+  - ticker: "NVDA"
+    market: US
+    display_name: "NVIDIA"
+  - ticker: "SOFI"
+    market: US
+    display_name: "SoFi Technologies"
+  - ticker: "INTC"
+    market: US
+    display_name: "Intel"
+
+# ===== スキャン設定 =====
+scan_interval_minutes: 5   # 定期スキャンの間隔（分）
+market_hours_only: true    # 市場時間外はスキャンをスキップ
+
+# ===== 仮想ポートフォリオ設定 =====
+paper_trading:
+  enabled: true
+  initial_cash: 100000     # 初期仮想資金: 10万円
+  session_id: "default"
+  strategy: "composite"    # 使用戦略: ma_cross / rsi / composite
+
+# ===== リスク管理 =====
+# 10万円の少額運用に合わせてパラメータ調整
+risk:
+  stop_loss_pct: 0.07        # 損切りライン: 取得平均から -7%
+  trailing_stop_pct: 0.05    # トレーリングストップ: 高値から -5%
+  max_position_pct: 0.30     # 1銘柄への最大投資割合: 資金の 30%（少額 + USD株対応）
+  min_cash_reserve_pct: 0.10 # 常時キャッシュ予備: 資金の 10%
+
+# ===== アラートルール =====
+alert_rules:
+  - rule_type: "rsi_oversold"
+    threshold: 30
+  - rule_type: "rsi_overbought"
+    threshold: 70
+  - rule_type: "volume_spike"
+    threshold: 2.5           # 20日平均の 2.5 倍以上で発火

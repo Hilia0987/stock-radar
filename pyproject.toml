@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "stock-radar"
+version = "0.1.0"
+description = "株式監視 & 仮想取引シミュレーションツール"
+authors = ["Hillia0987 <iwthrt@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "^8.1.7"
+pyyaml = "^6.0.1"
+pandas = "^2.0.0"
+yfinance = "^0.2.40"
+pandas-ta = "^0.3.14b"
+rich = "^13.7.0"
+plotext = "^5.2.8"
+apscheduler = "^3.10.4"
+pytz = "^2024.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
